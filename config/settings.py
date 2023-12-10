@@ -89,7 +89,11 @@ REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_RATES': {
         'all': '8/day',
         'detail': '10/min',
-    }
+    },
+    'DEFAULT_PERMISSION_CLASSES': [
+       'rest_framework.permissions.AllowAny',
+       'rest_framework.permissions.IsAuthenticated',
+    ]
 }
 
 # Password validation
