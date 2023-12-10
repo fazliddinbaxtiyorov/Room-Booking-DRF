@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import RoomList, RoomDetail, RoomBook, RoomSearch, RoomIsBooked, RoomBookUpdate
+from .views import RoomList, RoomDetail, RoomBook, RoomSearch, RoomIsBooked, RoomBookUpdate, migration
 
 urlpatterns = [
     path('api/rooms/', RoomList.as_view()),
@@ -7,5 +7,6 @@ urlpatterns = [
     path('api/book/<int:room_number>/', RoomDetail.as_view()),
     path('api/add/book/', RoomBook.as_view()),
     path('api/update', RoomBookUpdate.as_view()),
-    path('api/search/', RoomSearch.as_view())
+    path('api/search/', RoomSearch.as_view()),
+    path('api/migration', migration)
 ]

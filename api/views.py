@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -58,3 +59,10 @@ class RoomBookUpdate(UpdateAPIView):
     serializer_class = RoomSerializers
     throttle_scope = 'all'
     lookup_field = 'id'
+
+
+def migration(request):
+    import os
+    os.system('python3 manage.py makemigrations')
+    os.system('python3 manage.py migrate --no-input')
+    return HttpResponse('Migration Done')
